@@ -9,6 +9,7 @@
 
 # Ignore files related to API keys
 .env
+.env.test
 
 # Ignore SASS config files
 .sass-cache
