@@ -5,8 +5,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 
-// const encrypt = require("mongoose-encryption"); // level 2
-// var md5 = require("md5"); // for hashing the passwords...more security  level 3
+
 const bcrypt = require("bcrypt"); // for salting + hashing ... more security than only hashing... level4
 const saltRounds = 10; 
 
@@ -21,28 +20,8 @@ const userSchema = new mongoose.Schema({
   email:String,
   password:String
 });
-// ------ for encryption of password-----
-// userSchema.plugin(encrypt,{secret:process.env.SECRET,encryptedFields:["password"]}); // level 2
 
 const User = new mongoose.model("User",userSchema);
-// const user1 = new User({
-//   email:"1@2.com",
-//   password:"123"
-// });
-
-// const user2 = new User({
-//   email:"test@email.com",
-//   password:"test123"
-// });
-
-// const items = [user1,user2];
-// User.insertMany(items,function(err){
-//   if(err){
-//       console.log(err);
-//   } else{
-//       console.log("Successfully saved into the db");
-//   }
-// });
 
 app.get("/",function(req,res){
   res.render("home");
